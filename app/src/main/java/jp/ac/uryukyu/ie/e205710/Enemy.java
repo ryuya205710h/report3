@@ -13,7 +13,7 @@ public class Enemy {
     private int hitPoint;
     private int attack;
     private boolean dead;
-    
+
     /** 
      * nameを受け取る
      * @return name
@@ -55,13 +55,11 @@ public class Enemy {
      * @param hero 攻撃対象
      */
     public void attack(Hero hero){
-        if (hitPoint < 0){
-            attack = 0;
-        }else{
+
         int damage = (int)(Math.random() * attack);
         System.out.printf("%sの攻撃！%sに%dのダメージを与えた！！\n", name, hero.getName(), damage);
         hero.wounded(damage);
-        }
+        
     }
 
     /**
