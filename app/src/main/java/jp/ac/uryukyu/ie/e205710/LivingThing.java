@@ -12,7 +12,12 @@ public class LivingThing {
         this.attack = attack;
         dead = false;
     }
-
+    public int getHP(){
+        return hitPoint;
+    }
+    public int getAttack(){
+        return attack;
+    }
     public boolean isDead(){
         return dead;
     }
@@ -20,9 +25,13 @@ public class LivingThing {
         return name;
     }
     public void attack(LivingThing opponent){
-        int damage = (int)(Math.random() * attack);
-        System.out.printf("%sの攻撃！%sに%dのダメージを与えた！！\n", name, opponent.getName(), damage);
-        opponent.wounded(damage);
+        if(hitPoint > 0){
+            int damage = (int)(Math.random() * attack);
+            System.out.printf("%sの攻撃！%sに%dのダメージを与えた！！\n", name, opponent.getName(), damage);
+            opponent.wounded(damage);
+        }else{
+            attack =0;
+        }
     }
     public void wounded(int damage){
         hitPoint -= damage;
